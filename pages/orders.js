@@ -31,7 +31,7 @@ function DisplayOrders() {
   return (
     <div className="text-center my-4">
       <div className="d-flex flex-column align-items-center justify-content-center">
-        <h2 className="order-headers">Loot Bag</h2>
+        <h2 className="order-headers">Open Orders</h2>
         <div className="d-flex flex-wrap">
           {openOrders.map((order) => (
             <OrderCard key={order.orderId} orderObj={order} />
