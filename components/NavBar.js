@@ -26,6 +26,9 @@ export default function NavBar() {
             <Link passHref href="/users">
               <Nav.Link>Profile</Nav.Link>
             </Link>
+            <Link passHref href="/orders">
+              <Nav.Link>Order</Nav.Link>
+            </Link>
             <Button variant="danger" onClick={signOut}>
               Sign Out
             </Button>
