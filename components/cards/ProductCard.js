@@ -40,7 +40,7 @@ ProductCard.propTypes = {
   productObj: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
-    productType: PropTypes.string,
+    productType: PropTypes.number,
     imageUrl: PropTypes.string,
     typeId: PropTypes.number,
     price: PropTypes.number,

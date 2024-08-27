@@ -23,8 +23,8 @@ export default function NavBar() {
             <Link passHref href="/products">
               <Nav.Link>Shop</Nav.Link>
             </Link>
-            <Link passHref href="/delete-me">
-              <Nav.Link>Delete Me</Nav.Link>
+            <Link passHref href="/users">
+              <Nav.Link>Profile</Nav.Link>
             </Link>
             <Button variant="danger" onClick={signOut}>
               Sign Out
