@@ -7,7 +7,7 @@ import { addProductToOrder } from '../../api/orderData';
 
 function ProductCard({ productObj, onUpdate }) {
   const addThisProduct = () => {
-    if (window.confirm(`Add ${productObj.productName} to your cart?`)) {
+    if (window.confirm(`Add ${productObj.title} to your cart?`)) {
       const payload = {
         orderId: 2,
         productId: productObj.id,
@@ -24,9 +24,9 @@ function ProductCard({ productObj, onUpdate }) {
 
   return (
     <Card className="complete-product-card" style={{ width: '22rem', margin: '20px' }}>
-      <Card.Img variant="top" src={productObj.image} alt={productObj.productName} style={{ height: '350px' }} />
+      <Card.Img variant="top" src={productObj.imageUrl} alt={productObj.title} style={{ height: '350px' }} />
       <Card.Body>
-        <Card.Title className="card-title">{productObj.productName}</Card.Title>
+        <Card.Title className="card-title">{productObj.title}</Card.Title>
         <Card.Text>${productObj.price}</Card.Text>
         <Button className="user-card-button" variant="danger" onClick={addThisProduct}>
           Add to Cart
@@ -39,9 +39,9 @@ function ProductCard({ productObj, onUpdate }) {
 ProductCard.propTypes = {
   productObj: PropTypes.shape({
     id: PropTypes.number,
-    productName: PropTypes.string,
+    title: PropTypes.string,
     productType: PropTypes.string,
-    image: PropTypes.string,
+    imageUrl: PropTypes.string,
     typeId: PropTypes.number,
     price: PropTypes.number,
     quantity: PropTypes.number,
