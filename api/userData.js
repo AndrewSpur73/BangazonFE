@@ -1,5 +1,5 @@
 const getUserDetails = (uid) => new Promise((resolve, reject) => {
-  fetch(`https://localhost:7086/api/users/details/${uid}`, {
+  fetch(`https://localhost:7201/api/users/details/${uid}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ const getUserDetails = (uid) => new Promise((resolve, reject) => {
 });
 
 const switchUserToSeller = (uid) => new Promise((resolve, reject) => {
-  fetch(`https://localhost:7086/api/users/sell/${uid}`, {
+  fetch(`https://localhost:7201/api/users/sell/${uid}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const switchUserToSeller = (uid) => new Promise((resolve, reject) => {
 });
 
 const updateUser = (id, payload) => new Promise((resolve, reject) => {
-  fetch(`https://localhost:7086/api/users/${id}`, {
+  fetch(`https://localhost:7201/api/users/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
