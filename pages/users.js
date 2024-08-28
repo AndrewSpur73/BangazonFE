@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import UserCard from '../components/cards/UserCard';
-import { getUserDetails, switchUserToSeller } from '../api/UserData';
+import { getUserDetails, switchUserToSeller } from '../api/usersData';
 
 const UserDetailsPage = () => {
   const [userDetails, setUserDetails] = useState(null);
