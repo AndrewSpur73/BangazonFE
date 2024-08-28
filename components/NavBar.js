@@ -6,6 +6,7 @@ import {
   Container,
   Nav,
   Button,
+  Image,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
 
@@ -27,7 +28,9 @@ export default function NavBar() {
               <Nav.Link>Profile</Nav.Link>
             </Link>
             <Link passHref href="/orders">
-              <Nav.Link>Order</Nav.Link>
+              <Nav.Link>
+                <Image src="https://cdn-icons-png.flaticon.com/128/1170/1170576.png" height="30" />
+              </Nav.Link>
             </Link>
             <Button variant="danger" onClick={signOut}>
               Sign Out
