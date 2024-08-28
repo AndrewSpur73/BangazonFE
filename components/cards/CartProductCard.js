@@ -39,7 +39,7 @@ CartProductCard.propTypes = {
     title: PropTypes.string,
     productType: PropTypes.string,
     imageUrl: PropTypes.string,
-    typeId: PropTypes.number,
+    productTypeId: PropTypes.number,
     price: PropTypes.number,
     quantity: PropTypes.number,
     sellerId: PropTypes.number,

@@ -50,8 +50,8 @@ const updateProduct = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getProductOrdersById = (id) => new Promise((resolve, reject) => {
-  fetch(`http://localhost:7201/api/products/${id}/orders`)
+const getProductOrdersById = (productId) => new Promise((resolve, reject) => {
+  fetch(`http://localhost:7201/api/products/${productId}/orders`)
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');

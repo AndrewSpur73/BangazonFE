@@ -18,7 +18,7 @@ function OrderCard({ orderObj }) {
         {orderObj.paymentType && ( // Check if paymentType is not null
         <Card.Text>Payment Type: {orderObj.paymentType}</Card.Text>
         )}
-        <Link href={`order/${orderObj.id}`} passHref>
+        <Link href={`order/${orderObj.orderId}`} passHref>
           <Button className="user-card-button" variant="danger">VIEW DETAILS</Button>
         </Link>
       </Card.Body>
