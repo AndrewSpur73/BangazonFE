@@ -17,10 +17,7 @@ function ShowProducts() {
     <>
       <div className="text-center my-4">
         <div className="d-flex flex-wrap">
-          {products.map((product) => {
-            console.warn(product);
-            return <ProductCard key={product.productId} productObj={product} onUpdate={getAllProducts} />;
-          })}
+          {products.map((product) => <ProductCard key={product.productId} productObj={product} onUpdate={getAllProducts} />)}
         </div>
       </div>
     </>
