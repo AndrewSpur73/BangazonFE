@@ -10,7 +10,7 @@ function ProductCard({ productObj, onUpdate }) {
     if (window.confirm(`Add ${productObj.title} to your cart?`)) {
       const payload = {
         orderId: 2,
-        productId: productObj.id,
+        productId: productObj.productId,
       };
       addProductToOrder(payload)
         .then(() => {
@@ -38,14 +38,14 @@ function ProductCard({ productObj, onUpdate }) {
 
 ProductCard.propTypes = {
   productObj: PropTypes.shape({
-    id: PropTypes.number,
+    productId: PropTypes.number,
     title: PropTypes.string,
-    productType: PropTypes.number,
+    productType: PropTypes.string,
     imageUrl: PropTypes.string,
     typeId: PropTypes.number,
     price: PropTypes.number,
     quantity: PropTypes.number,
-    sellerId: PropTypes.bool,
+    sellerId: PropTypes.number,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
