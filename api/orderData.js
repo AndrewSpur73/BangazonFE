@@ -63,7 +63,7 @@ const updateOrder = (payload) => new Promise((resolve, reject) => {
 
 const addProductToOrder = (payload) => new Promise((resolve, reject) => {
   fetch('https://localhost:7201/api/orders/addProduct', {
-    method: 'PATCH',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -92,8 +92,8 @@ const removeProductFromOrder = (orderId, productId) => new Promise((resolve, rej
     .catch(reject);
 });
 
-const getOrderProducts = (id) => new Promise((resolve, reject) => {
-  fetch(`https://localhost:7201/api/orders/${id}/products`, {
+const getOrderProducts = (orderId) => new Promise((resolve, reject) => {
+  fetch(`https://localhost:7201/api/orders/${orderId}/products`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

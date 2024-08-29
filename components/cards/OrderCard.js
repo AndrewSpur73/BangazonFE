@@ -29,6 +29,7 @@ function OrderCard({ orderObj }) {
 OrderCard.propTypes = {
   orderObj: PropTypes.shape({
     orderId: PropTypes.number,
+    id: PropTypes.number,
     uid: PropTypes.string,
     orderComplete: PropTypes.bool,
     paymentType: PropTypes.string,

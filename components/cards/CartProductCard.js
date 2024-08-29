@@ -1,23 +1,20 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-import { addProductToOrder } from '../../api/orderData';
+import { removeProductFromOrder } from '../../api/orderData';
 
-function ProductCard({ productObj, onUpdate }) {
-  const addThisProduct = () => {
-    if (window.confirm(`Add ${productObj.title} to your cart?`)) {
-      const payload = {
-        orderId: 2,
-        productId: productObj.productId,
-      };
-      addProductToOrder(payload)
+function CartProductCard({ productObj, orderId, onUpdate }) {
+  const removeThisProduct = () => {
+    if (window.confirm(`Remove ${productObj.title} from your cart?`)) {
+      removeProductFromOrder(orderId, productObj.productId)
         .then(() => {
           onUpdate();
         })
         .catch((error) => {
-          console.error('Error adding product to order:', error);
+          console.error('Error removing product from order:', error);
         });
     }
   };
@@ -28,15 +25,15 @@ function ProductCard({ productObj, onUpdate }) {
       <Card.Body>
         <Card.Title className="card-title">{productObj.title}</Card.Title>
         <Card.Text>${productObj.price}</Card.Text>
-        <Button className="user-card-button" variant="danger" onClick={addThisProduct}>
-          Add to Cart
+        <Button className="user-card-button" variant="danger" onClick={removeThisProduct}>
+          Remove
         </Button>
       </Card.Body>
     </Card>
   );
 }
 
-ProductCard.propTypes = {
+CartProductCard.propTypes = {
   productObj: PropTypes.shape({
     productId: PropTypes.number,
     title: PropTypes.string,
@@ -47,7 +44,8 @@ ProductCard.propTypes = {
     quantity: PropTypes.number,
     sellerId: PropTypes.number,
   }).isRequired,
+  orderId: PropTypes.number.isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
 
-export default ProductCard;
+export default CartProductCard;
