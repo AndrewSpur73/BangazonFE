@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-// import Link from 'next/link';
+import Link from 'next/link';
 
 function UserDetailCard({ userDetails, handleSwitchToSeller }) {
   return (
@@ -14,18 +14,19 @@ function UserDetailCard({ userDetails, handleSwitchToSeller }) {
         <Card.Text><strong>User Name:</strong> {userDetails.userName}</Card.Text>
         <Card.Text><strong>Address:</strong> {userDetails.address}</Card.Text>
         <Card.Text><strong>Email:</strong> {userDetails.email}</Card.Text>
+        <Card.Text><strong>Seller:</strong> {userDetails.seller ? 'Yes' : 'No'}</Card.Text>
         <div className="d-flex flex-column align-items-center justify-content-center">
-          {/* <Link href={`/user/edit/${userDetails.uid}`} passHref>
+          <Link href={`/user/${userDetails.uid}`} passHref>
             <Button className="user-card-button" variant="danger">EDIT</Button>
           </Link>
 
-          {userDetails.Seller && (
+          {userDetails.seller && (
             <Link href="/product/new" passHref>
               <Button className="user-card-button" variant="danger">Sell a Product</Button>
             </Link>
-          )} */}
+          )}
 
-          {!userDetails.Seller && (
+          {!userDetails.seller && (
             <Button type="button" className="user-card-button" onClick={handleSwitchToSeller} variant="danger">
               Become a Seller
             </Button>
@@ -43,7 +44,7 @@ UserDetailCard.propTypes = {
     userName: PropTypes.string,
     address: PropTypes.string,
     email: PropTypes.string,
-    Seller: PropTypes.bool,
+    seller: PropTypes.bool,
     uid: PropTypes.string,
   }).isRequired,
   handleSwitchToSeller: PropTypes.func.isRequired,

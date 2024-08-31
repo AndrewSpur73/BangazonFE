@@ -25,7 +25,6 @@ export default function ViewProduct() {
         <Card.Title className="card-title">{productObj.title}</Card.Title>
         <Card.Text>${productObj.price}</Card.Text>
         <Card.Text>{productObj.description}</Card.Text>
-        <Card.Text>Category: {productObj.productType ? productObj.productType.type : 'No Category'}</Card.Text>
         <Card.Text>Quantity Available: {productObj.quantity}</Card.Text>
         <Button className="user-card-button" variant="danger" id="back-button" onClick={handleButtonClick}>Back</Button>
       </Card.Body>

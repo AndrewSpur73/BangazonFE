@@ -69,6 +69,19 @@ function ProductForm({ obj }) {
         />
       </FloatingLabel>
 
+      {/* DESCRIPTION TEXTAREA  */}
+      <FloatingLabel controlId="floatingTextarea" label="Description" className="mb-3">
+        <Form.Control
+          as="textarea"
+          placeholder="Description"
+          style={{ height: '100px' }}
+          name="description"
+          value={formInput.description}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
       <FloatingLabel controlId="productType" label="Product Type">
         <Form.Select
           aria-label="Product Type"
@@ -122,6 +135,7 @@ ProductForm.propTypes = {
     productTypeId: PropTypes.number,
     price: PropTypes.number,
     quantity: PropTypes.number,
+    description: PropTypes.string,
   }),
 };
 
