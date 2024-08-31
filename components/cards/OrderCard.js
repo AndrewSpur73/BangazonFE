@@ -9,7 +9,6 @@ function OrderCard({ orderObj }) {
     <Card className="complete-order-card" style={{ width: '22rem', margin: '20px' }}>
       <Card.Body>
         <Card.Title className="card-title">{orderObj.orderId}</Card.Title>
-        <Card.Text>{orderObj.uid}</Card.Text>
         {orderObj.orderComplete ? (
           <Card.Text>Closed</Card.Text>
         ) : (
