@@ -51,7 +51,7 @@ const updateProduct = (payload) => new Promise((resolve, reject) => {
 });
 
 const getProductOrdersById = (productId) => new Promise((resolve, reject) => {
-  fetch(`http://localhost:7201/api/products/${productId}/orders`)
+  fetch(`https://localhost:7201/api/products/${productId}/orders`)
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -62,10 +62,23 @@ const getProductOrdersById = (productId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getProductsBySellerId = (sellerId) => new Promise((resolve, reject) => {
+  fetch(`https://localhost:7201/api/products/seller/${sellerId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
   getSingleProduct,
   getAllProducts,
   createProduct,
   updateProduct,
   getProductOrdersById,
+  getProductsBySellerId,
 };

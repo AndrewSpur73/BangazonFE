@@ -4,8 +4,10 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import { addProductToOrder } from '../../api/orderData';
+import { useAuth } from '../../utils/context/authContext';
 
 function ProductCard({ productObj, onUpdate }) {
+  const { user } = useAuth();
   const addThisProduct = () => {
     if (window.confirm(`Add ${productObj.title} to your cart?`)) {
       const payload = {
@@ -35,6 +37,13 @@ function ProductCard({ productObj, onUpdate }) {
         <Button className="user-card-button" variant="danger" onClick={addThisProduct}>
           Add to Cart
         </Button>
+        {user.id === productObj.sellerId && (
+          <Link href={`product/edit/${productObj.productId}`} passHref>
+            <Button className="user-card-button" variant="danger">
+              Update Product
+            </Button>
+          </Link>
+        )}
       </Card.Body>
     </Card>
   );
