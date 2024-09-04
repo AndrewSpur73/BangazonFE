@@ -24,7 +24,7 @@ function ProductForm({ obj }) {
     getAllProductTypes().then(setProductTypes);
 
     if (obj.id) setFormInput(obj);
-  }, [obj]);
+  }, [obj, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
